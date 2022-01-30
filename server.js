@@ -12,7 +12,7 @@ const user = {
 
 app.use("/auth", (req, res) => {
   if (req.method === "POST") {
-    if ("testuser" === user.username && "qwerty" === user.password) {
+    if (req.body.username === user.username && req.body.password === user.password) {
       res.cookie("UserID", `${user.id}`, {
         maxAge: 3600 * 48,
         path: "/",
